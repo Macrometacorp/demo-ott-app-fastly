@@ -1,0 +1,198 @@
+@import "../../scss/mixin";
+@import "../../scss/variables";
+
+.Search {
+    padding: 2em 4vw 0 4vw;
+    margin-top: 7em;
+
+    &__flex {
+        display: flex;
+    }
+
+    &__wrp {
+        margin: 0 auto;
+        margin-top: 3vh;
+        width: 100%;
+    }
+
+    &__title {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.6;
+        text-align: left;
+        white-space: nowrap;
+
+        @include mq("md") {
+            font-size: 18px;
+        }
+
+        @include mq(1330px) {
+            font-size: 1.2vw;
+        }
+    }
+
+    &__search-suggestions {
+        display: flex;
+        margin: 0 auto;
+        margin-top: 3vh;
+        justify-content: space-evenly;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        h3 {
+            padding-bottom: 8px;
+            margin-left: 16px;
+        }
+
+        ul {
+            overflow-y: auto;
+            height: 230px;
+            -ms-overflow-style: none;
+            padding-left: 8px;
+            padding-right: 8px;
+            scrollbar-width: none;
+        }
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__text-placeholder {
+        list-style: none;
+        display: flex;
+        cursor: pointer;
+        height: 35px;
+        border-radius: 16px;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+        align-content: center;
+
+        @include mq("md") {
+            width: 200px;
+        }
+
+        @include mq("lg") {
+            width: 320px;
+        }
+
+        @include mq(1330px) {
+            width: 420px;
+        }
+    }
+
+    &__search-term {
+        flex: 1;
+        text-align: start;
+        text-overflow: ellipsis;
+        overflow-x: hidden;
+        white-space: nowrap;
+    }
+
+    &__add-search-term {
+        flex: 0.2;
+        font-size: 18px;
+    }
+
+    &__remove-search-term {
+        flex: 0.3;
+        font-size: 18px;
+    }
+
+    &__search-operator {
+        border-radius: 16px;
+        cursor: pointer;
+        padding: 0px 8px;
+        margin-right: 12px;
+        border: 2px solid rgb(218, 26, 40);
+    }
+
+    &__search-term-li {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        cursor: pointer;
+        margin-right: 8px;
+
+        span {
+            flex: 1;
+            white-space: nowrap;
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: left;
+            padding-right: 4px;
+
+            @include mq("md") {
+                font-size: 18px;
+            }
+
+            @include mq(1330px) {
+                font-size: 1.2vw;
+            }
+        }
+    }
+
+    &__history {
+        cursor: pointer;
+
+        &__btn {
+            display: flex;
+            align-items: center;
+
+            span {
+                white-space: nowrap;
+                padding-right: 8px;
+            }
+        }
+
+        ul {
+            list-style: none;
+            z-index: 99;
+            border: 2px solid #9c1aff;
+            border-radius: 8px;
+            position: absolute;
+            background-color: #141414;
+            right: 64px;
+            margin-top: 8px;
+            height: 56px;
+            overflow: hidden;
+        }
+
+        li {
+            padding: 8px;
+            white-space: nowrap;
+        }
+    }
+
+    &__operator {
+        display: flex;
+        align-items: center;
+        margin-right: 8px;
+        cursor: pointer;
+
+        &__btn {
+            display: flex;
+            align-items: center;
+
+            span {
+                white-space: nowrap;
+                padding-right: 8px;
+            }
+        }
+
+        ul {
+            list-style: none;
+            z-index: 99;
+            border: 2px solid #9c1aff;
+            border-radius: 8px;
+            position: absolute;
+            background-color: #141414;
+            overflow: hidden;
+        }
+
+        li {
+            padding: 8px;
+            white-space: nowrap;
+        }
+    }
+}

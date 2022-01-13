@@ -1,0 +1,279 @@
+@import '../../scss/mixin';
+@import "../../scss/variables";
+
+.Poster {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    white-space: normal;
+    vertical-align: top;
+    padding: 0 3px;
+    margin-bottom: 4vw;
+    width: 100%;
+    transform: scale(1);
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    cursor: pointer;
+
+    @include mq(330px) {
+        width: 50%;
+
+        &:nth-child(1n) {
+            transform-origin: initial;
+        }
+        &:nth-child(2n+1) {
+            transform-origin: left;
+        }
+        &:nth-child(2n+2) {
+            transform-origin: right;
+        }
+    }
+    @include mq(625px) {
+        width: 33.3%;
+
+        &:nth-child(1n) {
+            transform-origin: initial;
+        }
+        &:nth-child(3n+1) {
+            transform-origin: left;
+        }
+        &:nth-child(3n+3) {
+            transform-origin: right;
+        }
+    }
+    @include mq(998px) {
+        width: 25%;
+
+        &:nth-child(1n) {
+            transform-origin: initial;
+        }
+        &:nth-child(4n+1) {
+            transform-origin: left;
+        }
+        &:nth-child(4n+4) {
+            transform-origin: right;
+        }
+    }
+    @include mq(1378px) {
+        width: 16.6%;
+
+        &:nth-child(1n) {
+            transform-origin: initial;
+        }
+        &:nth-child(6n+1) {
+            transform-origin: left;
+        }
+        &:nth-child(6n+6) {
+            transform-origin: right;
+        }
+    }
+
+    img {
+        display: block;
+        height: 100%;
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    &__fallback {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        min-width: 100%;
+        min-height: 110px;
+        border-radius: 5px;
+        text-align: center;
+        font-weight: 500;
+        z-index: -1;
+        padding: 0 1em;
+    }
+
+    &__info {
+        position: absolute;
+        left: 3px;
+        bottom: 0;
+        transform: translateY(15%);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        width: calc(100% - 6px);
+        height: 100%;
+        padding: 0.6em;
+        opacity: 0;
+        z-index: 2;
+        border-radius: 5px;
+        pointer-events: none;
+        transition: all .4s ease .15s;
+
+        @include mq('md') {
+            pointer-events: all;
+        }
+
+        &--iconswrp {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        &--icon {
+            display: inline-flex;
+            padding: 6px;
+            border-radius: 50%;
+            font-size: 12px;
+            cursor: pointer;
+            margin: 0 5px;
+            margin-bottom: 0.6em;
+            background: transparent;
+            color: $white;
+            border: 1px solid $white;
+            transition: all 0.3s ease-out;
+            outline: none;
+
+            @include mq('lg') {
+                font-size: 14px;
+                padding: 8px;
+                margin-bottom: 0.8em;
+            }
+
+            @include mq(1378px, 1680px) {
+                font-size: 12px;
+                padding: 6px;
+                margin-bottom: 0.6em;
+            }
+
+            @include mq(1680px) {
+                font-size: 14px;
+                padding: 8px;
+                margin-bottom: 0.8em;
+            }
+
+            &:hover {
+                background: $white;
+                color: $black;
+            }
+
+            &:first-child {
+                margin-left: 0;
+                background: $white;
+                color: $black;
+
+                &:hover {
+                    background: rgba($white, 0.7);
+                    border-color: rgba($white, 0.7);
+                }
+            }
+        }
+
+        &--title {
+            h3 {
+                font-size: 12px;
+                font-weight: 600;
+                text-transform: none;
+
+                @include mq('lg') {
+                    font-size: 15px;
+                }
+
+                @include mq(1378px, 1680px) {
+                    font-size: 12px;
+                }
+
+                @include mq(1680px) {
+                    font-size: 15px;
+                }
+            }
+
+            p {
+                font-size: 10px;
+                margin-top: 0.3vw;
+                margin-bottom: 0;
+
+                @include mq('lg') {
+                    font-size: 13px;
+                }
+
+                @include mq(1378px, 1680px) {
+                    font-size: 10px;
+                }
+
+                @include mq(1680px) {
+                    font-size: 13px;
+                }
+            }
+        }
+
+        &--genres {
+            display: block;
+            width: 100%;
+
+            .genre-title {
+                display: inline-block;
+                width: auto;
+                font-size: 8px;
+                margin: 0 0.3vw 0 0;
+
+                @include mq('lg') {
+                    font-size: 10px;
+                }
+
+                @include mq(1378px, 1680px) {
+                    font-size: 8px;
+                }
+
+                @include mq(1680px) {
+                    font-size: 10px;
+                }
+
+                &:after {
+                    content: "●";
+                    display: inline-block;
+                    margin: 0 0 0 0.3vw;
+                    font-size: 6px;
+                    text-shadow: 0 1px 1px rgba(0, 0, 0, 0);
+                    color: rgba($white, 0.4);
+                }
+
+                &:last-child:after {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 3px;
+        width: calc(100% - 6px);
+        height: 100%;
+        border-radius: 5px;
+        background: linear-gradient(360deg, rgba(0, 0, 0, 0.6) 0%, transparent 65%);
+        z-index: 0;
+        opacity: 0;
+        transition: opacity 0.2s ease-out;
+    }
+
+    @include mq('md') {
+        &:hover {
+            transform: scale(1.3) !important;
+            transition-delay: 0.3s;
+            z-index: 1;
+            opacity: 1;
+
+            &::after {
+                opacity: 1;
+            }
+
+            .Poster__info {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    }
+}

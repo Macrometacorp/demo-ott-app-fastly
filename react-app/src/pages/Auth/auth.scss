@@ -1,0 +1,144 @@
+@import '../../scss/mixin';
+@import '../../scss/variables';
+
+.Auth {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    &__bgLayer {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(14, 14, 14, 0.6);
+        z-index: 0;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    &__opacityLayer {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(14, 14, 14, 0.6);
+        z-index: 1;
+    }
+
+    &__logo {
+        display: none;
+        @include mq(xs) {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            padding: 2em;
+
+            &--img {
+                width: 100%;
+                max-width: 160px;
+            }
+        }
+    }
+
+    &__content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        width: 100%;
+        max-width: 90%;
+        padding: 2em 1.8em;
+        border-radius: 8px;
+        background-color: rgba($color: $pure-black, $alpha: 0.75);
+
+        @include mq(xs) {
+            padding: 2.25em 2em;
+        }
+
+        @include mq(sm) {
+            padding: 3.75em 3em;
+        }
+
+        @include mq(md) {
+            max-width: 500px;
+        }
+
+        &--title {
+            font-size: 1.2rem;
+            margin-bottom: 1em;
+
+            @include mq(xs) {
+                font-size: 1.5rem;
+            }
+        }
+
+        &--divider {
+            margin: 1.5em;
+            border-color: #777777;
+        }
+
+        &--toggleView {
+            display: inherit;
+            font-family: $main-font;
+            font-size: 14px;
+            line-height: 1.4;
+            color: #747474;
+            text-align: center;
+
+            .toggler {
+                display: inline-block;
+                color: $red;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 1.4;
+                cursor: pointer;
+                transition: all 0.2s ease-out;
+
+                &:hover {
+                    color: darken($red, 5);
+                    transform: scale(0.95);
+                }
+
+                @include mq(md) {
+                    font-size: 16px;
+                }
+            }
+
+            @include mq(md) {
+                font-size: 16px;
+            }
+        }
+
+        &--disclaimer {
+            display: inherit;
+            font-family: $main-font;
+            font-size: 14px;
+            line-height: 1.4;
+            font-weight: 600;
+            color: $red;
+            text-align: center;
+            margin-top: 1.5em;
+        }
+
+        &--errors {
+            display: inherit;
+            margin-top: 1.5em;
+            font-family: $main-font;
+            font-size: 14px;
+            line-height: 1.4;
+            color: orange;
+            text-align: center;
+
+            @include mq(md) {
+                font-size: 16px;
+            }
+        }
+    }
+}

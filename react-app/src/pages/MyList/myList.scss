@@ -1,0 +1,27 @@
+@import "../../scss/mixin";
+
+.MyList {
+	padding: 2em 4vw 0 4vw;
+	margin-top: 7em;
+
+	&__wrp {
+		margin: 0 auto;
+		margin-top: 3vh;
+		width: 100%;
+	}
+
+	&__title {
+		margin: 0;
+		font-size: 16px;
+		line-height: 1.6;
+		text-align: left;
+
+		@include mq("md") {
+			font-size: 18px;
+		}
+
+		@include mq(1330px) {
+			font-size: 1.2vw;
+		}
+	}
+}
