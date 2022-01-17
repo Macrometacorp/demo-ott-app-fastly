@@ -5,9 +5,7 @@ export const getBodyParameters = async (body) => {
 
     while (true) {
         const { done, value } = await reader.read()
-
         const chunkStr = decoder.decode(value)
-
         data += chunkStr
 
         if (done) {
