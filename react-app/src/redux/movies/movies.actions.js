@@ -1,6 +1,5 @@
-import jsC8 from "../../jsc8Instance"
+import axios from "../../axiosInstance"
 import { moviesActionTypes } from "./movies.types"
-// import axios from "../../axiosInstance"
 
 // Action
 export const fetchActionMoviesRequest = () => ({
@@ -20,9 +19,10 @@ export const fetchActionMoviesFailure = (error) => ({
 export const fetchActionMoviesAsync = (restql, isPage, offset, limit) => {
     return (dispatch) => {
         dispatch(fetchActionMoviesRequest())
-        jsC8.executeRestql(restql, { genreId: "28", offset: offset, resLimit: limit })
+        axios
+            .post(restql, { genreId: "28", offset: offset, resLimit: limit })
             .then((res) => {
-                const result = res.result.sort(() => Math.random() - 0.5)
+                const result = res.data.result.sort(() => Math.random() - 0.5)
                 const actionMovies = result.map((el) => ({
                     ...el,
                     isFavourite: false,
@@ -58,9 +58,10 @@ export const fetchAdventureMoviesFailure = (error) => ({
 export const fetchAdventureMoviesAsync = (restql, isPage, offset, limit) => {
     return (dispatch) => {
         dispatch(fetchAdventureMoviesRequest())
-        jsC8.executeRestql(restql, { genreId: "12", offset: offset, resLimit: limit })
+        axios
+            .post(restql, { genreId: "12", offset: offset, resLimit: limit })
             .then((res) => {
-                const result = res.result.sort(() => Math.random() - 0.5)
+                const result = res.data.result.sort(() => Math.random() - 0.5)
                 const adventureMovies = result.map((el) => ({
                     ...el,
                     isFavourite: false,
@@ -96,9 +97,10 @@ export const fetchAnimationMoviesFailure = (error) => ({
 export const fetchAnimationMoviesAsync = (restql, isPage, offset, limit) => {
     return (dispatch) => {
         dispatch(fetchAnimationMoviesRequest())
-        jsC8.executeRestql(restql, { genreId: "16", offset: offset, resLimit: limit })
+        axios
+            .post(restql, { genreId: "16", offset: offset, resLimit: limit })
             .then((res) => {
-                const result = res.result.sort(() => Math.random() - 0.5)
+                const result = res.data.result.sort(() => Math.random() - 0.5)
                 const animationMovies = result.map((el) => ({
                     ...el,
                     isFavourite: false,
@@ -132,9 +134,10 @@ export const fetchComedyMoviesFailure = (error) => ({
 export const fetchComedyMoviesAsync = (restql, isPage, offset, limit) => {
     return (dispatch) => {
         dispatch(fetchComedyMoviesRequest())
-        jsC8.executeRestql(restql, { genreId: "35", offset: offset, resLimit: limit })
+        axios
+            .post(restql, { genreId: "35", offset: offset, resLimit: limit })
             .then((res) => {
-                const result = res.result.sort(() => Math.random() - 0.5)
+                const result = res.data.result.sort(() => Math.random() - 0.5)
                 const comedyMovies = result.map((el) => ({
                     ...el,
                     isFavourite: false,
@@ -168,9 +171,10 @@ export const fetchHorrorMoviesFailure = (error) => ({
 export const fetchHorrorMoviesAsync = (restql, isPage, offset, limit) => {
     return (dispatch) => {
         dispatch(fetchHorrorMoviesRequest())
-        jsC8.executeRestql(restql, { genreId: "27", offset: offset, resLimit: limit })
+        axios
+            .post(restql, { genreId: "27", offset: offset, resLimit: limit })
             .then((res) => {
-                const result = res.result.sort(() => Math.random() - 0.5)
+                const result = res.data.result.sort(() => Math.random() - 0.5)
                 const horrorMovies = result.map((el) => ({
                     ...el,
                     isFavourite: false,
@@ -204,9 +208,10 @@ export const fetchNetflixMoviesFailure = (error) => ({
 export const fetchNetflixMoviesAsync = (restql, isPage) => {
     return (dispatch) => {
         dispatch(fetchNetflixMoviesRequest())
-        jsC8.executeRestql(restql)
+        axios
+            .post(restql)
             .then((res) => {
-                const result = res.result.sort(() => Math.random() - 0.5)
+                const result = res.data.result.sort(() => Math.random() - 0.5)
                 const netflixMovies = result.map((el) => ({
                     ...el,
                     isFavourite: false,
@@ -240,9 +245,10 @@ export const fetchRomanceMoviesFailure = (error) => ({
 export const fetchRomanceMoviesAsync = (restql, isPage, offset, limit) => {
     return (dispatch) => {
         dispatch(fetchRomanceMoviesRequest())
-        jsC8.executeRestql(restql, { genreId: "10749", offset: offset, resLimit: limit })
+        axios
+            .post(restql, { genreId: "10749", offset: offset, resLimit: limit })
             .then((res) => {
-                const result = res.result.sort(() => Math.random() - 0.5)
+                const result = res.data.result.sort(() => Math.random() - 0.5)
                 const romanceMovies = result.map((el) => ({
                     ...el,
                     isFavourite: false,
@@ -278,9 +284,10 @@ export const fetchTopRatedMoviesFailure = (error) => ({
 export const fetchTopRatedMoviesAsync = (restql, isPage) => {
     return (dispatch) => {
         dispatch(fetchTopRatedMoviesRequest())
-        jsC8.executeRestql(restql)
+        axios
+            .post(restql)
             .then((res) => {
-                const topRatedMovies = res.result.map((el) => ({
+                const topRatedMovies = res.data.result.map((el) => ({
                     ...el,
                     isFavourite: false,
                 }))
@@ -315,9 +322,10 @@ export const fetchTrendingMoviesFailure = (error) => ({
 export const fetchTrendingMoviesAsync = (restql, isPage) => {
     return (dispatch) => {
         dispatch(fetchTrendingMoviesRequest())
-        jsC8.executeRestql(restql)
+        axios
+            .post(restql)
             .then((res) => {
-                const trendingMovies = res.result.map((el) => ({
+                const trendingMovies = res.data.result.map((el) => ({
                     ...el,
                     isFavourite: false,
                 }))

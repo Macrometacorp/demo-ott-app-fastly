@@ -1,3 +1,5 @@
+import { fetchTopRatedMoviesRequest, movieAssetsByGenre } from "./API/movies"
+import { fetchTopRatedTvSeriesRequest, tvSeriesAssetsByGenre } from "./API/tvseries"
 import { signin, signup } from "./auth"
 
 addEventListener("fetch", (event) => event.respondWith(handleRequest(event)))
@@ -7,6 +9,13 @@ async function handleRequest(event) {
     let req = event.request
     let url = new URL(req.url)
     let response
+
+    // Filter requests that have unexpected methods.
+    if (!["OPTIONS", "POST"].includes(req.method)) {
+        return new Response("This method is not allowed", {
+            status: 405,
+        })
+    }
 
     if (
         req.method === "OPTIONS" &&
@@ -30,6 +39,18 @@ async function handleRequest(event) {
             break
         case "/signup":
             response = await signup(req)
+            break
+        case "/getMovieAssetsByGenre":
+            response = await movieAssetsByGenre(req)
+            break
+        case "/getTopRatedMovies":
+            response = await fetchTopRatedMoviesRequest(req)
+            break
+        case "/getTvSeriesAssetsByGenre":
+            response = await tvSeriesAssetsByGenre(req)
+            break
+        case "/getTopRatedTvSeries":
+            response = await fetchTopRatedTvSeriesRequest(req)
             break
         default:
             response = new Response("The page you requested could not be found", {

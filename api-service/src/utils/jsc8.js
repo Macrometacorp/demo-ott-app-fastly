@@ -19,3 +19,8 @@ export const getJsc8Client = () => {
     }
     return jsc8Client
 }
+
+export const executeRestQl = async (restql, params) => {
+    const jsc8Client = getJsc8Client()
+    return await jsc8Client.executeRestql(restql, params)
+}
