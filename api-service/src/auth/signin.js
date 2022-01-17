@@ -8,9 +8,7 @@ export const signin = async (request) => {
         const jsc8Client = getJsc8Client()
 
         const bodyData = await getBodyParameters(request.body)
-
         const { email, password } = bodyData
-
         const passwordHash = await crypto.createHash("sha256").update(password, "utf-8").digest("hex")
 
         const restQlResponse = await jsc8Client.executeRestql("signIn", {
@@ -23,11 +21,9 @@ export const signin = async (request) => {
         }
 
         headers.set("Content-Type", "application/json")
-
         return new Response(JSON.stringify(restQlResponse.result), {
             status: 200,
             headers,
-
             url: request.url,
         })
     } catch (error) {

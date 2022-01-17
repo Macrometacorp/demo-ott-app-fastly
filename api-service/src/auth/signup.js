@@ -12,11 +12,8 @@ export const signup = async (request) => {
         const jsc8Client = getJsc8Client()
 
         const bodyData = await getBodyParameters(request.body)
-
         const { email, password, displayName: name } = bodyData
-
         const passwordHash = await crypto.createHash("sha256").update(password, "utf-8").digest("hex")
-
         const customerId = uuid()
 
         const restQlResponse = await jsc8Client.executeRestql("signUp", {

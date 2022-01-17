@@ -5,6 +5,8 @@ addEventListener("fetch", (event) => event.respondWith(handleRequest(event)))
 async function handleRequest(event) {
     // Get the client request.
     let req = event.request
+    let url = new URL(req.url)
+    let response
 
     if (
         req.method === "OPTIONS" &&
@@ -21,10 +23,6 @@ async function handleRequest(event) {
             },
         })
     }
-
-    let url = new URL(req.url)
-
-    let response
 
     switch (url.pathname) {
         case "/signin":
