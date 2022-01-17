@@ -1,8 +1,8 @@
 # This file describes a Fastly Compute@Edge package. To learn more visit:
 # https://developer.fastly.com/reference/fastly-toml/
 
-authors = ["naimish.vora@macrometa.com"]
-description = "MetaFlix"
+authors = ["macrometa.com"]
+description = "Macrometa MetaFlix OTT App"
 language = "javascript"
 manifest_version = 2
 name = "api-server"
@@ -10,5 +10,5 @@ service_id = ""
 
 [local_server]
   [local_server.backends]
-    [local_server.backends.api_tushar_eng_macrometa_io]
-      url = "https://api-tushar.eng.macrometa.io"
+    [local_server.backends.gdn_url]
+      url = "https://api-gdn.paas.macrometa.io"
