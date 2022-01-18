@@ -9,6 +9,7 @@ const initClient = () => {
         agent: fetch,
         agentOptions: {
             backend: "gdn_url",
+            cacheOverride: new CacheOverride("override", { ttl: 0 }),
         },
     })
 }
@@ -23,4 +24,9 @@ export const getJsc8Client = () => {
 export const executeRestQl = async (restql, params) => {
     const jsc8Client = getJsc8Client()
     return await jsc8Client.executeRestql(restql, params)
+}
+
+export const executeQuery = async (searchQuery, bindVars) => {
+    const jsc8Client = getJsc8Client()
+    return await jsc8Client.executeQuery({ query: searchQuery, bindVars })
 }

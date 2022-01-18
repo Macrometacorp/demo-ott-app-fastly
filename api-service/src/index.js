@@ -1,4 +1,5 @@
 import { getMovieAssetsByGenre, getTopRatedMovies } from "./API/movies"
+import { searchByAsset, searchByCriteria } from "./API/search"
 import { getTopRatedTvSeries, getTvSeriesAssetsByGenre } from "./API/tvseries"
 import { signin, signup } from "./auth"
 
@@ -34,12 +35,6 @@ async function handleRequest(event) {
     }
 
     switch (url.pathname) {
-        case "/signin":
-            response = await signin(req)
-            break
-        case "/signup":
-            response = await signup(req)
-            break
         case "/getMovieAssetsByGenre":
             response = await getMovieAssetsByGenre(req)
             break
@@ -51,6 +46,15 @@ async function handleRequest(event) {
             break
         case "/getTopRatedTvSeries":
             response = await getTopRatedTvSeries(req)
+            break
+        case "/searchByCriteria":
+            response = await searchByCriteria(req)
+            break
+        case "/signin":
+            response = await signin(req)
+            break
+        case "/signup":
+            response = await signup(req)
             break
         default:
             response = new Response("The page you requested could not be found", {
