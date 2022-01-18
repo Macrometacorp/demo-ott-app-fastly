@@ -1,6 +1,5 @@
-import jsC8 from "../../jsc8Instance"
 import { searchActionTypes } from "./search.types"
-import { restql } from "../../requests"
+import axios from "../../axiosInstance"
 
 export const changeSearchInputValue = (inputValue) => ({
     type: searchActionTypes.CHANGE_SEARCH_INPUT_VALUE,
@@ -28,20 +27,12 @@ export const fetchSearchResultsFailure = (errorMessage) => ({
 
 export const fetchSearchResultsAsync = (searchTerm, searchType) => {
     return (dispatch) => {
-        let searchQuery = restql.searchByAsset
-        let bindVars = { searchTerm }
-        if (searchType === "credits") {
-            bindVars = {}
-            searchQuery = restql.searchByCredits
-                .replace("SEARCH_PHRASE", searchTerm.searchPhrases)
-                .replace("SEARCH_FILTER", searchTerm.searchFilters)
-        }
+        dispatch(fetchSearchResultsRequest(searchTerm))
 
-        dispatch(fetchSearchResultsRequest(searchQuery))
-
-        jsC8.executeQuery({ query: searchQuery, bindVars })
+        axios
+            .post("searchByCriteria", { searchTerm: searchTerm, searchType: searchType })
             .then((response) => {
-                dispatch(fetchSearchResultsSuccess(response[0]))
+                dispatch(fetchSearchResultsSuccess(response.data[0]))
             })
             .catch((err) => {
                 dispatch(fetchSearchResultsFailure(err.message))

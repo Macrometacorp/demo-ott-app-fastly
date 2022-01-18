@@ -79,7 +79,7 @@ Refer to this link to add content for each Query worker:
 4. npm install
 5. npm run start
 ```
-**[Metaflix API with Fastly Compute@edge](api-service/readme.md)**
+**[Metaflix API with Fastly Compute@edge](api-service/README.md)**
 
 
 #### Fastly References
