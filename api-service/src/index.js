@@ -1,5 +1,5 @@
-import { fetchTopRatedMoviesRequest, movieAssetsByGenre } from "./API/movies"
-import { fetchTopRatedTvSeriesRequest, tvSeriesAssetsByGenre } from "./API/tvseries"
+import { getMovieAssetsByGenre, getTopRatedMovies } from "./API/movies"
+import { getTopRatedTvSeries, getTvSeriesAssetsByGenre } from "./API/tvseries"
 import { signin, signup } from "./auth"
 
 addEventListener("fetch", (event) => event.respondWith(handleRequest(event)))
@@ -41,16 +41,16 @@ async function handleRequest(event) {
             response = await signup(req)
             break
         case "/getMovieAssetsByGenre":
-            response = await movieAssetsByGenre(req)
+            response = await getMovieAssetsByGenre(req)
             break
         case "/getTopRatedMovies":
-            response = await fetchTopRatedMoviesRequest(req)
+            response = await getTopRatedMovies(req)
             break
         case "/getTvSeriesAssetsByGenre":
-            response = await tvSeriesAssetsByGenre(req)
+            response = await getTvSeriesAssetsByGenre(req)
             break
         case "/getTopRatedTvSeries":
-            response = await fetchTopRatedTvSeriesRequest(req)
+            response = await getTopRatedTvSeries(req)
             break
         default:
             response = new Response("The page you requested could not be found", {
