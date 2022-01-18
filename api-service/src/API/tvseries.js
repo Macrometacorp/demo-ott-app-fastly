@@ -2,7 +2,7 @@ import { restql } from "../utils/constant"
 import { getBodyParameters } from "../utils/helper"
 import { executeRestQl } from "../utils/jsc8"
 
-export const tvSeriesAssetsByGenre = async (request) => {
+export const getTvSeriesAssetsByGenre = async (request) => {
     const headers = new Headers()
     try {
         const body = await getBodyParameters(request.body)
@@ -23,7 +23,7 @@ export const tvSeriesAssetsByGenre = async (request) => {
     }
 }
 
-export const fetchTopRatedTvSeriesRequest = async (request) => {
+export const getTopRatedTvSeries = async (request) => {
     const headers = new Headers()
     try {
         const result = await executeRestQl(restql.topRatedTvSeries)
