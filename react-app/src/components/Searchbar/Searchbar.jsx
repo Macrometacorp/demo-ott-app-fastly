@@ -53,7 +53,7 @@ const Searchbar = () => {
                 history.push(`/search?q=${value.trim()}`)
                 dispatch(fetchSearchResultsAsync(value.trim()))
             } else history.push("/browse")
-        }, 500)
+        }, 250)
     }
 
     return (
