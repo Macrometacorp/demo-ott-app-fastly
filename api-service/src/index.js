@@ -1,6 +1,6 @@
-import { getMovieAssetsByGenre, getTopRatedMovies } from "./API/movies"
-import { searchByAsset, searchByCriteria } from "./API/search"
-import { getTopRatedTvSeries, getTvSeriesAssetsByGenre } from "./API/tvseries"
+import { getMovieAssetsByGenre, getTopRatedMovies } from "./api/movies"
+import { searchByCriteria } from "./api/search"
+import { getTopRatedTvSeries, getTvSeriesAssetsByGenre } from "./api/tvseries"
 import { signin, signup } from "./auth"
 
 addEventListener("fetch", (event) => event.respondWith(handleRequest(event)))

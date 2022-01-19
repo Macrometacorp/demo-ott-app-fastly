@@ -6,8 +6,8 @@
         "type": "git",
         "url": "https://github.com/Macrometacorp/demo-ott-app-fastly.git"
     },
-    "author": "macrometa.com",
-    "homepage": "https://github.com/Macrometacorp/demo-ott-app-fastly",
+    "author": "Macrometa Inc.",
+    "homepage": "https://macrometacorp.github.io/demo-ott-app-fastly/",
     "engines": {
         "node": "^16"
     },
