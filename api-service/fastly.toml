@@ -12,3 +12,8 @@ service_id = ""
   [local_server.backends]
     [local_server.backends.gdn_url]
       url = "https://api-gdn.paas.macrometa.io"
+
+[local_server.dictionaries]
+    [local_server.dictionaries.env]
+      file = "env.json"
+      format = "json"

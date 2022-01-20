@@ -1,14 +1,17 @@
+import { DICTIONARY_ITEM_KEYS } from "./constant"
+import { getEnv } from "./helper"
+
 const jsC8 = require("jsc8")
 
 let jsc8Client
 
 const initClient = () => {
     jsc8Client = new jsC8({
-        url: "https://gdn.paas.macrometa.io/",
-        apiKey: "XXXXXX",
+        url: getEnv(DICTIONARY_ITEM_KEYS.API_URL),
+        apiKey: getEnv(DICTIONARY_ITEM_KEYS.API_KEY),
         agent: fetch,
         agentOptions: {
-            backend: "gdn_url",
+            backend: getEnv(DICTIONARY_ITEM_KEYS.BACKEND),
             cacheOverride: new CacheOverride("override", { ttl: 0 }),
         },
     })
