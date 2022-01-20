@@ -18,6 +18,9 @@
 
 ![landing-page.png](landing-page.png)
 
+### Metaflix API setup
+**[Fastly Compute setup](api-service/README.md)**
+
 ### Macrometa GDN setup
 
 1. Create the following collections in your federation:
@@ -79,8 +82,6 @@ Refer to this link to add content for each Query worker:
 4. npm install
 5. npm run start
 ```
-**[Metaflix API with Fastly Compute@edge](api-service/README.md)**
-
 
 #### Fastly References
 https://developer.fastly.com/learning/compute/

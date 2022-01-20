@@ -1,3 +1,5 @@
+let envDictionary
+
 export const getBodyParameters = async (body) => {
     const reader = body.getReader()
     const decoder = new TextDecoder()
@@ -14,4 +16,17 @@ export const getBodyParameters = async (body) => {
     }
 
     return JSON.parse(data)
+}
+
+const getEnvDictionary = () => {
+    if (!envDictionary) {
+        envDictionary = new Dictionary("env")
+    }
+
+    return envDictionary
+}
+
+export const getEnv = (key) => {
+    const envDictionary = getEnvDictionary()
+    return envDictionary.get(key)
 }

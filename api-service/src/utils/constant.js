@@ -100,3 +100,9 @@ export const restql = {
             crew
         }`,
 }
+
+export const DICTIONARY_ITEM_KEYS = {
+    BACKEND: "backend_name",
+    API_URL: "gdn_api_url",
+    API_KEY: "gdn_api_key",
+}
