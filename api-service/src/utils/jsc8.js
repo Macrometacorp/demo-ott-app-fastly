@@ -1,5 +1,5 @@
+import { getEnv } from "../fastly/dictionaries"
 import { DICTIONARY_ITEM_KEYS } from "./constant"
-import { getEnv } from "./helper"
 
 const jsC8 = require("jsc8")
 
