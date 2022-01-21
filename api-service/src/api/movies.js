@@ -1,44 +1,26 @@
-import { restql } from "../utils/constant"
-import { getBodyParameters } from "../utils/helper"
+import { RESTQL } from "../utils/constant"
 import { executeRestQl } from "../utils/jsc8"
 
-export const getMovieAssetsByGenre = async (request) => {
-    const headers = new Headers()
+export const getMovieAssetsByGenre = async (body, response) => {
     try {
-        const body = await getBodyParameters(request.body)
-        const result = await executeRestQl(restql.movieAssetsByGenre, body)
+        const result = await executeRestQl(RESTQL.MOVIE_ASSETS_BY_GENRE, body)
 
-        headers.set("Content-Type", "application/json")
-        return new Response(JSON.stringify(result), {
-            status: 200,
-            headers,
-            url: request.url,
-        })
+        response.body = JSON.stringify(result)
     } catch (err) {
-        return new Response(JSON.stringify(err), {
-            status: 500,
-            headers,
-            url: request.url,
-        })
+        response.status = 500
+        response.body = JSON.stringify(err)
     }
+    return response
 }
 
-export const getTopRatedMovies = async (request) => {
-    const headers = new Headers()
+export const getTopRatedMovies = async (body, response) => {
     try {
-        const result = await executeRestQl(restql.topRatedMovies)
+        const result = await executeRestQl(RESTQL.TOP_RATED_MOVIES)
 
-        headers.set("Content-Type", "application/json")
-        return new Response(JSON.stringify(result), {
-            status: 200,
-            headers,
-            url: request.url,
-        })
+        response.body = JSON.stringify(result)
     } catch (err) {
-        return new Response(JSON.stringify(err), {
-            status: 500,
-            headers,
-            url: request.url,
-        })
+        response.status = 500
+        response.body = JSON.stringify(err)
     }
+    return response
 }

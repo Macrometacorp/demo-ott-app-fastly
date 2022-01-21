@@ -1,9 +1,9 @@
-export const restql = {
-    topRatedMovies: "getTopRatedMovies",
-    topRatedTvSeries: "getTopRatedTvSeries",
-    movieAssetsByGenre: "getMovieAssetsByGenre",
-    tvSeriesAssetsByGenre: "getTvSeriesAssetsByGenre",
-    searchByAsset: `LET tokens = TOKENS(@searchTerm, "text_en")
+export const RESTQL = {
+    MOVIE_ASSETS_BY_GENRE: "getMovieAssetsByGenre",
+    TOP_RATED_MOVIES: "getTopRatedMovies",
+    TV_SERIES_ASSETS_BY_GENRE: "getTvSeriesAssetsByGenre",
+    TOP_RATED_TV_SERIES: "getTopRatedTvSeries",
+    SEARCH_BY_ASSET: `LET tokens = TOKENS(@searchTerm, "text_en")
         LET assets = (
             LET search_results = (
                 FOR asset IN asset_credit_view
@@ -57,7 +57,7 @@ export const restql = {
             cast,
             crew
         }`,
-    searchByCredits: `LET assets = (
+    SEARCH_BY_CREDITS: `LET assets = (
             LET credit_ids = (
                 FOR asset IN asset_credit_view
                     SEARCH SEARCH_PHRASE
@@ -105,4 +105,14 @@ export const DICTIONARY_ITEM_KEYS = {
     BACKEND: "backend_name",
     API_URL: "gdn_api_url",
     API_KEY: "gdn_api_key",
+}
+
+export const ROUTES = {
+    MOVIE_ASSETS_BY_GENRE: "/getMovieAssetsByGenre",
+    TOP_RATED_MOVIES: "/getTopRatedMovies",
+    TV_SERIES_ASSETS_BY_GENRE: "/getTvSeriesAssetsByGenre",
+    TOP_RATED_TV_SERIES: "/getTopRatedTvSeries",
+    SEARCH_BY_CRITERIA: "/searchByCriteria",
+    SIGN_IN: "/signin",
+    SIGN_UP: "/signup",
 }

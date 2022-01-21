@@ -5,14 +5,11 @@ const jsC8 = require("jsc8")
 const crypto = require("crypto")
 const { v4: uuid } = require("uuid")
 
-export const signup = async (request) => {
-    const headers = new Headers()
-
+export const signup = async (body, response) => {
     try {
         const jsc8Client = getJsc8Client()
 
-        const bodyData = await getBodyParameters(request.body)
-        const { email, password, displayName: name } = bodyData
+        const { email, password, displayName: name } = body
         const passwordHash = await crypto.createHash("sha256").update(password, "utf-8").digest("hex")
         const customerId = uuid()
 
@@ -23,19 +20,10 @@ export const signup = async (request) => {
             name,
         })
 
-        headers.set("Content-Type", "application/json")
-
-        return new Response(JSON.stringify(restQlResponse.result), {
-            status: 200,
-            headers,
-            url: request.url,
-        })
+        response.body = JSON.stringify(restQlResponse.result)
     } catch (error) {
-        headers.set("Content-Type", "text/plain")
-        return new Response("User already exists", {
-            status: 400,
-            headers,
-            url: request.url,
-        })
+        response.status = 400
+        response.body = "User already exists"
     }
+    return response
 }
