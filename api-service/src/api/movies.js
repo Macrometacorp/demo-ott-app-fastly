@@ -13,7 +13,7 @@ export const getMovieAssetsByGenre = async (body, response) => {
     return response
 }
 
-export const getTopRatedMovies = async (body, response) => {
+export const getTopRatedMovies = async (response) => {
     try {
         const result = await executeRestQl(RESTQL.TOP_RATED_MOVIES)
 

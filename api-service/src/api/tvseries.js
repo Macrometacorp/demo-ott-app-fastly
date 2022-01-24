@@ -14,7 +14,7 @@ export const getTvSeriesAssetsByGenre = async (body, response) => {
     return response
 }
 
-export const getTopRatedTvSeries = async (body, response) => {
+export const getTopRatedTvSeries = async (response) => {
     try {
         const result = await executeRestQl(RESTQL.TOP_RATED_TV_SERIES)
 
