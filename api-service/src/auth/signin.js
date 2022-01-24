@@ -1,14 +1,11 @@
-import { getBodyParameters } from "../utils/helper"
 import { getJsc8Client } from "../utils/jsc8"
 const crypto = require("crypto")
 
-export const signin = async (request) => {
-    const headers = new Headers()
+export const signin = async (body, response) => {
     try {
         const jsc8Client = getJsc8Client()
 
-        const bodyData = await getBodyParameters(request.body)
-        const { email, password } = bodyData
+        const { email, password } = body
         const passwordHash = await crypto.createHash("sha256").update(password, "utf-8").digest("hex")
 
         const restQlResponse = await jsc8Client.executeRestql("signIn", {
@@ -20,18 +17,10 @@ export const signin = async (request) => {
             throw new Error()
         }
 
-        headers.set("Content-Type", "application/json")
-        return new Response(JSON.stringify(restQlResponse.result), {
-            status: 200,
-            headers,
-            url: request.url,
-        })
+        response.body = JSON.stringify(restQlResponse.result)
     } catch (error) {
-        headers.set("Content-Type", "text/plain")
-        return new Response("User does not exist", {
-            status: 404,
-            headers,
-            url: request.url,
-        })
+        response.status = 404
+        response.body = "User does not exist"
     }
+    return response
 }

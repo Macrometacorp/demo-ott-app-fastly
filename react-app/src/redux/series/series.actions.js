@@ -1,4 +1,4 @@
-import jsC8 from "../../jsc8Instance"
+import axios from "../../axiosInstance"
 import { seriesActionTypes } from "./series.types"
 
 // Netflix
@@ -19,9 +19,10 @@ export const fetchNetflixSeriesFailure = (errorMessage) => ({
 export const fetchNetflixSeriesAsync = (restql, isPage) => {
     return (dispatch) => {
         dispatch(fetchNetflixSeriesRequest())
-        jsC8.executeRestql(restql)
+        axios
+            .post(restql)
             .then((res) => {
-                const netflixSeries = res.result.map((el) => ({
+                const netflixSeries = res.data.result.map((el) => ({
                     ...el,
                     isFavourite: false,
                 }))
@@ -56,9 +57,10 @@ export const fetchActionAdventureSeriesFailure = (errorMessage) => ({
 export const fetchActionAdventureSeriesAsync = (restql, isPage, offset, limit) => {
     return (dispatch) => {
         dispatch(fetchActionAdventureSeriesRequest())
-        jsC8.executeRestql(restql, { genreId: "10759", offset: offset, resLimit: limit })
+        axios
+            .post(restql, { genreId: "10759", offset: offset, resLimit: limit })
             .then((res) => {
-                const actionAdventureSeries = res.result.map((el) => ({
+                const actionAdventureSeries = res.data.result.map((el) => ({
                     ...el,
                     isFavourite: false,
                 }))
@@ -93,9 +95,10 @@ export const fetchAnimationSeriesFailure = (errorMessage) => ({
 export const fetchAnimationSeriesAsync = (restql, isPage, offset, limit) => {
     return (dispatch) => {
         dispatch(fetchAnimationSeriesRequest())
-        jsC8.executeRestql(restql, { genreId: "16", offset: offset, resLimit: limit })
+        axios
+            .post(restql, { genreId: "16", offset: offset, resLimit: limit })
             .then((res) => {
-                const animationSeries = res.result.map((el) => ({
+                const animationSeries = res.data.result.map((el) => ({
                     ...el,
                     isFavourite: false,
                 }))
@@ -128,9 +131,10 @@ export const fetchComedySeriesFailure = (errorMessage) => ({
 export const fetchComedySeriesAsync = (restql, isPage, offset, limit) => {
     return (dispatch) => {
         dispatch(fetchComedySeriesRequest())
-        jsC8.executeRestql(restql, { genreId: "35", offset: offset, resLimit: limit })
+        axios
+            .post(restql, { genreId: "35", offset: offset, resLimit: limit })
             .then((res) => {
-                const comedySeries = res.result.map((el) => ({
+                const comedySeries = res.data.result.map((el) => ({
                     ...el,
                     isFavourite: false,
                 }))
@@ -163,9 +167,10 @@ export const fetchCrimeSeriesFailure = (errorMessage) => ({
 export const fetchCrimeSeriesAsync = (restql, isPage, offset, limit) => {
     return (dispatch) => {
         dispatch(fetchCrimeSeriesRequest())
-        jsC8.executeRestql(restql, { genreId: "80", offset: offset, resLimit: limit })
+        axios
+            .post(restql, { genreId: "80", offset: offset, resLimit: limit })
             .then((res) => {
-                const crimeSeries = res.result.map((el) => ({
+                const crimeSeries = res.data.result.map((el) => ({
                     ...el,
                     isFavourite: false,
                 }))
@@ -200,9 +205,10 @@ export const fetchDocumentarySeriesFailure = (errorMessage) => ({
 export const fetchDocumentarySeriesAsync = (restql, isPage, offset, limit) => {
     return (dispatch) => {
         dispatch(fetchDocumentarySeriesRequest())
-        jsC8.executeRestql(restql, { genreId: "99", offset: offset, resLimit: limit })
+        axios
+            .post(restql, { genreId: "99", offset: offset, resLimit: limit })
             .then((res) => {
-                const documentarySeries = res.result.map((el) => ({
+                const documentarySeries = res.data.result.map((el) => ({
                     ...el,
                     isFavourite: false,
                 }))
@@ -235,9 +241,10 @@ export const fetchFamilySeriesFailure = (errorMessage) => ({
 export const fetchFamilySeriesAsync = (restql, isPage, offset, limit) => {
     return (dispatch) => {
         dispatch(fetchFamilySeriesRequest())
-        jsC8.executeRestql(restql, { genreId: "10751", offset: offset, resLimit: limit })
+        axios
+            .post(restql, { genreId: "10751", offset: offset, resLimit: limit })
             .then((res) => {
-                const familySeries = res.result.map((el) => ({
+                const familySeries = res.data.result.map((el) => ({
                     ...el,
                     isFavourite: false,
                 }))
@@ -270,9 +277,10 @@ export const fetchKidsSeriesFailure = (errorMessage) => ({
 export const fetchKidsSeriesAsync = (restql, isPage, offset, limit) => {
     return (dispatch) => {
         dispatch(fetchKidsSeriesRequest())
-        jsC8.executeRestql(restql, { genreId: "10762", offset: offset, resLimit: limit })
+        axios
+            .post(restql, { genreId: "10762", offset: offset, resLimit: limit })
             .then((res) => {
-                const kidsSeries = res.result.map((el) => ({
+                const kidsSeries = res.data.result.map((el) => ({
                     ...el,
                     isFavourite: false,
                 }))
@@ -307,9 +315,10 @@ export const fetchSciFiFantasySeriesFailure = (errorMessage) => ({
 export const fetchSciFiFantasySeriesAsync = (restql, isPage, offset, limit) => {
     return (dispatch) => {
         dispatch(fetchSciFiFantasySeriesRequest())
-        jsC8.executeRestql(restql, { genreId: "10765", offset: offset, resLimit: limit })
+        axios
+            .post(restql, { genreId: "10765", offset: offset, resLimit: limit })
             .then((res) => {
-                const sciFiFantasySeries = res.result.map((el) => ({
+                const sciFiFantasySeries = res.data.result.map((el) => ({
                     ...el,
                     isFavourite: false,
                 }))
@@ -344,9 +353,10 @@ export const fetchTrendingSeriesFailure = (errorMessage) => ({
 export const fetchTrendingSeriesAsync = (restql, isPage) => {
     return (dispatch) => {
         dispatch(fetchTrendingSeriesRequest())
-        jsC8.executeRestql(restql)
+        axios
+            .post(restql)
             .then((res) => {
-                const trendingSeries = res.result.map((el) => ({
+                const trendingSeries = res.data.result.map((el) => ({
                     ...el,
                     isFavourite: false,
                 }))

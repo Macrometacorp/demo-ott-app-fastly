@@ -6,8 +6,8 @@
         "type": "git",
         "url": "https://github.com/Macrometacorp/demo-ott-app-fastly.git"
     },
-    "author": "macrometa.com",
-    "homepage": "https://github.com/Macrometacorp/demo-ott-app-fastly",
+    "author": "Macrometa Inc.",
+    "homepage": "https://macrometacorp.github.io/demo-ott-app-fastly/",
     "engines": {
         "node": "^16"
     },
@@ -28,7 +28,7 @@
     },
     "scripts": {
         "prebuild": "webpack",
-        "build": "js-compute-runtime --skip-pkg bin/index.js bin/main.wasm",
+        "build": "js-compute-runtime bin/index.js bin/main.wasm",
         "deploy": "npm run build && fastly compute deploy",
         "dev": "fastly compute serve --watch"
     }

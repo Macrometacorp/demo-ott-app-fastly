@@ -1,6 +1,6 @@
-<h1 align="center">Macrometa MetaFlix OTT App</h1>
+<h1 align="center">Macrometa MetaFlix OTT App with Fastly</h1>
 
-### **Live Demo:** https://macrometacorp.github.io/metaflix-fastly/
+### **Live Demo:** https://macrometacorp.github.io/demo-ott-app-fastly/
 
 ## Setup
 
@@ -17,6 +17,9 @@
 **Dashboard:**
 
 ![landing-page.png](landing-page.png)
+
+### MetaFlix Backend setup
+**[API setup with Fastly Compute@Edge](api-service/README.md)**
 
 ### Macrometa GDN setup
 
@@ -79,8 +82,6 @@ Refer to this link to add content for each Query worker:
 4. npm install
 5. npm run start
 ```
-**[Metaflix API with Fastly Compute@edge](api-service/readme.md)**
-
 
 #### Fastly References
 https://developer.fastly.com/learning/compute/

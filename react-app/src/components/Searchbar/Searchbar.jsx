@@ -11,6 +11,8 @@ import { FiSearch } from "react-icons/fi"
 import { RiCloseFill } from "react-icons/ri"
 import useOutsideClick from "../../hooks/useOutsideClick"
 
+let filterTimeout
+
 const Searchbar = () => {
     const history = useHistory()
     const dispatch = useDispatch()
@@ -38,14 +40,20 @@ const Searchbar = () => {
     }
 
     const handleSearchInput = (event) => {
-        const { value } = event.target
-        setSearchInput(value)
-        dispatch(changeSearchInputValue(value))
+        clearTimeout(filterTimeout)
 
-        if (value.trim().length > 0) {
-            history.push(`/search?q=${value.trim()}`)
-            dispatch(fetchSearchResultsAsync(value.trim()))
-        } else history.push("/browse")
+        const { value } = event.target
+
+        setSearchInput(value)
+
+        filterTimeout = setTimeout(() => {
+            dispatch(changeSearchInputValue(value))
+
+            if (value.trim().length > 0) {
+                history.push(`/search?q=${value.trim()}`)
+                dispatch(fetchSearchResultsAsync(value.trim()))
+            } else history.push("/browse")
+        }, 250)
     }
 
     return (
