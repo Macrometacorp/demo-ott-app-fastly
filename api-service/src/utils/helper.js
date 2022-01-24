@@ -26,7 +26,6 @@ export const parseRequest = async (event) => {
     const pathname = url.pathname
     const body = await getBodyParameters(event.request.body)
     const ip = event.client.address || "127.0.0.1"
-    const geo = { country_name: "abcd" }
 
     return {
         url,
@@ -34,7 +33,6 @@ export const parseRequest = async (event) => {
         headers,
         method,
         ip,
-        geo,
         body,
         pathname,
     }

@@ -53,13 +53,13 @@ async function handleRequest(event) {
             response = await getMovieAssetsByGenre(body, response)
             break
         case TOP_RATED_MOVIES:
-            response = await getTopRatedMovies(body, response)
+            response = await getTopRatedMovies(response)
             break
         case TV_SERIES_ASSETS_BY_GENRE:
             response = await getTvSeriesAssetsByGenre(body, response)
             break
         case TOP_RATED_TV_SERIES:
-            response = await getTopRatedTvSeries(body, response)
+            response = await getTopRatedTvSeries(response)
             break
         case SEARCH_BY_CRITERIA:
             response = await searchByCriteria(body, response)
