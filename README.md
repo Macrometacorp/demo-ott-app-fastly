@@ -19,6 +19,7 @@
 ![landing-page.png](landing-page.png)
 
 ### MetaFlix Backend setup
+
 **[API setup with Fastly Compute@Edge](api-service/README.md)**
 
 ### Macrometa GDN setup
@@ -40,6 +41,7 @@ genres_asset_edge (graph-edge, local)
 **`asset_credit_view`** with Primary sort field `popularity`
 | **Mapping - Collection** | **Field** | **Analyzer** |
 | ------------------------ | --------- | ------------- |
+| assets | name | text_en |
 | assets | title | text_en |
 | assets | original_title | text_en |
 | assets | overview | text_en |
@@ -84,5 +86,6 @@ Refer to this link to add content for each Query worker:
 ```
 
 #### Fastly References
+
 https://developer.fastly.com/learning/compute/
 https://developer.fastly.com/learning/compute/javascript/

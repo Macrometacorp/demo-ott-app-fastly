@@ -19,6 +19,17 @@ Metaflix API server is created using fastly compute@edge. It is using jsc8 drive
     $ fastly backend create --version=latest --name="gdn_url" --address="api-gdn.paas.macrometa.io" --port=443
     SUCCESS: Created backend gdn_url (service AAAAAAAAAAA version 1)
     ```
+6. Create Fastly Dictionary and Dictionary items to store environment variables
+
+    ```
+    fastly dictionary create --version=latest --name="env"
+    fastly dictionary list --version=latest
+
+    # Replace `DICTIONARY_ID` with dictionary id from above command.
+    fastly dictionary-item create --dictionary-id="DICTIONARY_ID" --key="backend_name" --value="gdn_url"
+    fastly dictionary-item create --dictionary-id="DICTIONARY_ID" --key="gdn_api_key" --value="GDN_API_KEY"
+    fastly dictionary-item create --dictionary-id="DICTIONARY_ID" --key="gdn_api_url" --value="https://api-gdn.paas.macrometa.io"
+    ```
 
 ## How to Run and Publish on Fastly Compute@Edge
 
