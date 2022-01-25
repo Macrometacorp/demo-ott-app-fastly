@@ -87,5 +87,6 @@ Refer to this link to add content for each Query worker:
 
 #### Fastly References
 
-https://developer.fastly.com/learning/compute/
-https://developer.fastly.com/learning/compute/javascript/
+-   [Compute@Edge JS](https://developer.fastly.com/learning/compute/javascript/)
+-   [Compute@Edge JS Starter Kit](https://github.com/fastly/compute-starter-kit-javascript-default)
+-   [Compute@Edge Examples](https://developer.fastly.com/solutions/examples/javascript/)

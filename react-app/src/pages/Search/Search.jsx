@@ -65,9 +65,6 @@ const Search = (searchResults) => {
                     : selectSearchOp.current[index]
             }`
         })
-
-        console.log(JSON.stringify(searchInputs))
-        console.log(JSON.stringify(selectSearchOp.current))
         return { searchPhrases, searchFilters }
     }
 
@@ -78,6 +75,9 @@ const Search = (searchResults) => {
 
     const addSearchTerm = (searchTerm, type) => {
         let searchInputs = ""
+        if (typeof selectInputValue !== "string" && selectInputValue.includes(searchTerm)) {
+            return
+        }
 
         switch (type) {
             case "credits":
@@ -224,16 +224,11 @@ const Search = (searchResults) => {
                                         whileTap={{ scale: 0.95 }}
                                         className="Search__text-placeholder"
                                         style={style}
+                                        onClick={() =>
+                                            addSearchTerm(result.title || result.original_title || result.name, "asset")
+                                        }
                                     >
-                                        <FaCheck
-                                            className="Search__add-search-term"
-                                            onClick={() =>
-                                                addSearchTerm(
-                                                    result.title || result.original_title || result.name,
-                                                    "asset",
-                                                )
-                                            }
-                                        />
+                                        <FaCheck className="Search__add-search-term" />
                                         <span className="Search__search-term">
                                             {result.title || result.original_title || result.name}
                                         </span>
@@ -259,11 +254,9 @@ const Search = (searchResults) => {
                                         whileTap={{ scale: 0.95 }}
                                         className="Search__text-placeholder"
                                         style={style}
+                                        onClick={() => addSearchTerm(result.name, "credits")}
                                     >
-                                        <FaCheck
-                                            className="Search__add-search-term"
-                                            onClick={() => addSearchTerm(result.name, "credits")}
-                                        />
+                                        <FaCheck className="Search__add-search-term" />
                                         <span className="Search__search-term">{result.name}</span>
                                     </motion.li>
                                 ))}
@@ -287,11 +280,9 @@ const Search = (searchResults) => {
                                         whileTap={{ scale: 0.95 }}
                                         className="Search__text-placeholder"
                                         style={style}
+                                        onClick={() => addSearchTerm(result.name, "credits")}
                                     >
-                                        <FaCheck
-                                            className="Search__add-search-term"
-                                            onClick={() => addSearchTerm(result.name, "credits")}
-                                        />
+                                        <FaCheck className="Search__add-search-term" />
                                         <span className="Search__search-term">{result.name}</span>
                                     </motion.li>
                                 ))}
