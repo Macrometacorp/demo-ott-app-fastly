@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/demo-ott-app-fastly/static/css/main.c5b423bf.chunk.css",
-    "main.js": "/demo-ott-app-fastly/static/js/main.6c351310.chunk.js",
-    "main.js.map": "/demo-ott-app-fastly/static/js/main.6c351310.chunk.js.map",
+    "main.css": "/demo-ott-app-fastly/static/css/main.10943e7c.chunk.css",
+    "main.js": "/demo-ott-app-fastly/static/js/main.64504780.chunk.js",
+    "main.js.map": "/demo-ott-app-fastly/static/js/main.64504780.chunk.js.map",
     "runtime-main.js": "/demo-ott-app-fastly/static/js/runtime-main.33a355df.js",
     "runtime-main.js.map": "/demo-ott-app-fastly/static/js/runtime-main.33a355df.js.map",
     "static/css/2.b4e4841b.chunk.css": "/demo-ott-app-fastly/static/css/2.b4e4841b.chunk.css",
@@ -10,7 +10,7 @@
     "static/js/2.41415b1f.chunk.js.map": "/demo-ott-app-fastly/static/js/2.41415b1f.chunk.js.map",
     "index.html": "/demo-ott-app-fastly/index.html",
     "static/css/2.b4e4841b.chunk.css.map": "/demo-ott-app-fastly/static/css/2.b4e4841b.chunk.css.map",
-    "static/css/main.c5b423bf.chunk.css.map": "/demo-ott-app-fastly/static/css/main.c5b423bf.chunk.css.map",
+    "static/css/main.10943e7c.chunk.css.map": "/demo-ott-app-fastly/static/css/main.10943e7c.chunk.css.map",
     "static/js/2.41415b1f.chunk.js.LICENSE.txt": "/demo-ott-app-fastly/static/js/2.41415b1f.chunk.js.LICENSE.txt",
     "static/media/fallback_img.bbf78683.png": "/demo-ott-app-fastly/static/media/fallback_img.bbf78683.png",
     "static/media/logo.6217344a.png": "/demo-ott-app-fastly/static/media/logo.6217344a.png",
@@ -20,7 +20,7 @@
     "static/js/runtime-main.33a355df.js",
     "static/css/2.b4e4841b.chunk.css",
     "static/js/2.41415b1f.chunk.js",
-    "static/css/main.c5b423bf.chunk.css",
-    "static/js/main.6c351310.chunk.js"
+    "static/css/main.10943e7c.chunk.css",
+    "static/js/main.64504780.chunk.js"
   ]
 }
