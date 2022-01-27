@@ -57,8 +57,6 @@ export const restql = {
             RETURN (
                 FOR cast, edge IN 1..2 OUTBOUND id asset_credit_edge
                     FILTER edge.type == "cast"
-                    SORT cast.popularity DESC
-                    LIMIT 4
                 RETURN cast
             )
     )
@@ -68,16 +66,24 @@ export const restql = {
             RETURN (
                 FOR crew, edge IN 1..2 OUTBOUND id asset_credit_edge
                     FILTER edge.type == "crew"
-                    SORT crew.popularity DESC
-                    LIMIT 4
                 RETURN crew
             )
     )
 
     RETURN {
         assets: UNIQUE(assets[0]),
-        cast: UNIQUE(FLATTEN(cast)),
-        crew: UNIQUE(FLATTEN(crew))
+        cast: (
+            FOR c IN UNIQUE(FLATTEN(cast))
+                SORT c.popularity DESC
+                LIMIT 23
+                RETURN c
+        ),
+        crew: (
+            FOR c IN UNIQUE(FLATTEN(crew))
+                SORT c.popularity DESC
+                LIMIT 23
+                RETURN c
+        )
     }`,
     searchByCredits: `LET assets = (
         LET credit_ids = (
@@ -108,8 +114,6 @@ export const restql = {
             RETURN (
                 FOR cast, edge IN 1..2 OUTBOUND id asset_credit_edge
                     FILTER edge.type == "cast"
-                    SORT cast.popularity DESC
-                    LIMIT 4
                 RETURN cast
             )
     )
@@ -119,15 +123,23 @@ export const restql = {
             RETURN (
                 FOR crew, edge IN 1..2 OUTBOUND id asset_credit_edge
                     FILTER edge.type == "crew"
-                    SORT crew.popularity DESC
-                    LIMIT 4
                 RETURN crew
             )
     )
     RETURN {
         assets: UNIQUE(assets),
-        cast: UNIQUE(FLATTEN(cast)),
-        crew: UNIQUE(FLATTEN(crew))
+        cast: (
+            FOR c IN UNIQUE(FLATTEN(cast))
+                SORT c.popularity DESC
+                LIMIT 23
+                RETURN c
+        ),
+        crew: (
+            FOR c IN UNIQUE(FLATTEN(crew))
+                SORT c.popularity DESC
+                LIMIT 23
+                RETURN c
+        )
     }`,
 }
 

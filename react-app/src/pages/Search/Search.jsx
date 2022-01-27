@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { selectSearchInputValue } from "../../redux/search/search.selectors"
 import { changeSearchInputValue, fetchSearchResultsAsync } from "../../redux/search/search.actions"
 import { FaCheck, FaTimes } from "react-icons/fa"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { FiChevronDown } from "react-icons/fi"
 import { useRef } from "react"
 import useOutsideClick from "../../hooks/useOutsideClick"
@@ -16,6 +16,9 @@ import SearchOperator from "./SearchOperator"
 const Search = (searchResults) => {
     const history = useHistory()
     const dispatch = useDispatch()
+    const movieRef = useRef()
+    const castRef = useRef()
+    const crewRef = useRef()
     const selectInputValue = useSelector(selectSearchInputValue)
     const [searchHistory, setSearchHistory] = useState([])
     const [searchHistoryExpanded, setSearchHistoryExpanded] = useState(false)
@@ -30,6 +33,18 @@ const Search = (searchResults) => {
         collapsed: { opacity: 0, height: 0 },
         transition: { duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] },
     }
+
+    useEffect(() => {
+        if (results.assets.length && results.crew.length && results.cast.length) {
+            let scrollToTop = {
+                top: 0,
+                behavior: "smooth",
+            }
+            castRef.current.scrollTo(scrollToTop)
+            crewRef.current.scrollTo(scrollToTop)
+            movieRef.current.scrollTo(scrollToTop)
+        }
+    }, [JSON.stringify(results)])
 
     useOutsideClick(searchHistoryRef, () => {
         if (searchHistoryExpanded) setSearchHistoryExpanded(false)
@@ -215,7 +230,7 @@ const Search = (searchResults) => {
                     {results.assets && results.assets.length > 0 ? (
                         <>
                             <h3>Movie / TV</h3>
-                            <motion.ul>
+                            <motion.ul ref={movieRef}>
                                 {results.assets.map((result, index) => (
                                     <motion.li
                                         key={index}
@@ -245,7 +260,7 @@ const Search = (searchResults) => {
                     {results.cast && results.cast.length > 0 ? (
                         <>
                             <h3>Cast</h3>
-                            <motion.ul>
+                            <motion.ul ref={castRef}>
                                 {results.cast.map((result, index) => (
                                     <motion.li
                                         key={index}
@@ -271,7 +286,7 @@ const Search = (searchResults) => {
                     {results.crew && results.crew.length > 0 ? (
                         <>
                             <h3>Crew</h3>
-                            <motion.ul>
+                            <motion.ul ref={crewRef}>
                                 {results.crew.map((result, index) => (
                                     <motion.li
                                         key={index}
