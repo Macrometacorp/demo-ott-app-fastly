@@ -116,7 +116,7 @@ const Navbar = () => {
                     <div className="Navbar__navitem">
                         <Searchbar />
                     </div>
-                    <div className="Navbar__navitem">
+                    {currentUser && (<div className="Navbar__navitem">
                         <div
                             className={`Navbar__navprofile ${profileNav && "active"}`}
                             onClick={() => setProfileNav(!profileNav)}
@@ -142,7 +142,7 @@ const Navbar = () => {
                                 )}
                             </div>
                         </div>
-                    </div>
+                    </div>)}
                 </div>
             </motion.nav>
         </>
