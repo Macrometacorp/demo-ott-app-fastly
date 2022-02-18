@@ -23,7 +23,7 @@
     &__logo {
         max-width: 40px;
         width: 100%;
-
+        
         @include mq(600px) {
             max-width: 130px;
         }

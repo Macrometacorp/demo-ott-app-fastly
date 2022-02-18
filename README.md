@@ -1,4 +1,4 @@
-<h1 align="center">Macrometa MetaFlix OTT App with Fastly</h1>
+<h1 align="center">Macrometa EdgeFlix OTT App with Fastly</h1>
 
 ### **Live Demo:** https://macrometacorp.github.io/demo-ott-app-fastly/
 
@@ -18,8 +18,7 @@
 
 ![landing-page.png](landing-page.png)
 
-### MetaFlix Backend setup
-
+### EdgeFlix Backend setup
 **[API setup with Fastly Compute@Edge](api-service/README.md)**
 
 ### Macrometa GDN setup
