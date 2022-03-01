@@ -2,7 +2,7 @@
 # https://developer.fastly.com/reference/fastly-toml/
 
 authors = ["Macrometa Inc."]
-description = "Macrometa EdgeFlix OTT App"
+description = "Macrometa Edgely + OTT App"
 language = "javascript"
 manifest_version = 2
 name = "api-server"
