@@ -1,6 +1,6 @@
-# EdgeFlix Backend on Fastly Compute@Edge
+# Edgely + Backend on Fastly Compute@Edge
 
-EdgeFlix API server is created using fastly compute@edge. It is using jsc8 driver to make API calls to GDN. It has different API endpoints like login/signup, list top movies and movies by genre, list top tv series and series by genre etc.
+Edgely + API server is created using fastly compute@edge. It is using jsc8 driver to make API calls to GDN. It has different API endpoints like login/signup, list top movies and movies by genre, list top tv series and series by genre etc.
 
 ## Prerequisite
 
@@ -9,7 +9,7 @@ EdgeFlix API server is created using fastly compute@edge. It is using jsc8 drive
 3. Create Fastly Compute@Edge service
 
     ```
-    $ fastly service create --name="EdgeFlix Fastly Backend" --type=wasm
+    $ fastly service create --name="Edgely + Fastly Backend" --type=wasm
     SUCCESS: Created service AAAAAAAAAAA
     ```
 
