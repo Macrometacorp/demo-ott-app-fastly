@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/demo-ott-app-fastly/static/css/main.7c60ef62.chunk.css",
-    "main.js": "/demo-ott-app-fastly/static/js/main.d6da5253.chunk.js",
-    "main.js.map": "/demo-ott-app-fastly/static/js/main.d6da5253.chunk.js.map",
+    "main.css": "/demo-ott-app-fastly/static/css/main.ebfda216.chunk.css",
+    "main.js": "/demo-ott-app-fastly/static/js/main.05287778.chunk.js",
+    "main.js.map": "/demo-ott-app-fastly/static/js/main.05287778.chunk.js.map",
     "runtime-main.js": "/demo-ott-app-fastly/static/js/runtime-main.33a355df.js",
     "runtime-main.js.map": "/demo-ott-app-fastly/static/js/runtime-main.33a355df.js.map",
     "static/css/2.b4e4841b.chunk.css": "/demo-ott-app-fastly/static/css/2.b4e4841b.chunk.css",
-    "static/js/2.dc6d260b.chunk.js": "/demo-ott-app-fastly/static/js/2.dc6d260b.chunk.js",
-    "static/js/2.dc6d260b.chunk.js.map": "/demo-ott-app-fastly/static/js/2.dc6d260b.chunk.js.map",
+    "static/js/2.8e80bb69.chunk.js": "/demo-ott-app-fastly/static/js/2.8e80bb69.chunk.js",
+    "static/js/2.8e80bb69.chunk.js.map": "/demo-ott-app-fastly/static/js/2.8e80bb69.chunk.js.map",
     "index.html": "/demo-ott-app-fastly/index.html",
     "static/css/2.b4e4841b.chunk.css.map": "/demo-ott-app-fastly/static/css/2.b4e4841b.chunk.css.map",
-    "static/css/main.7c60ef62.chunk.css.map": "/demo-ott-app-fastly/static/css/main.7c60ef62.chunk.css.map",
-    "static/js/2.dc6d260b.chunk.js.LICENSE.txt": "/demo-ott-app-fastly/static/js/2.dc6d260b.chunk.js.LICENSE.txt",
+    "static/css/main.ebfda216.chunk.css.map": "/demo-ott-app-fastly/static/css/main.ebfda216.chunk.css.map",
+    "static/js/2.8e80bb69.chunk.js.LICENSE.txt": "/demo-ott-app-fastly/static/js/2.8e80bb69.chunk.js.LICENSE.txt",
     "static/media/fallback_img.bbf78683.png": "/demo-ott-app-fastly/static/media/fallback_img.bbf78683.png",
     "static/media/logo.a93eee78.png": "/demo-ott-app-fastly/static/media/logo.a93eee78.png",
     "static/media/signin_bg.0dd79681.jpg": "/demo-ott-app-fastly/static/media/signin_bg.0dd79681.jpg"
@@ -19,8 +19,8 @@
   "entrypoints": [
     "static/js/runtime-main.33a355df.js",
     "static/css/2.b4e4841b.chunk.css",
-    "static/js/2.dc6d260b.chunk.js",
-    "static/css/main.7c60ef62.chunk.css",
-    "static/js/main.d6da5253.chunk.js"
+    "static/js/2.8e80bb69.chunk.js",
+    "static/css/main.ebfda216.chunk.css",
+    "static/js/main.05287778.chunk.js"
   ]
 }
