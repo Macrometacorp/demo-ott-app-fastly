@@ -35,7 +35,7 @@ const Search = (searchResults) => {
     }
 
     useEffect(() => {
-    if (results.assets?.length && results.crew?.length && results.cast?.length) {
+        if (results.length && results.assets.length && results.crew.length && results.cast.length) {
             let scrollToTop = {
                 top: 0,
                 behavior: "smooth",
