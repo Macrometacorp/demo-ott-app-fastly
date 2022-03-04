@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Route, Switch, Redirect, useLocation } from "react-router-dom"
-import { AnimatePresence } from "framer-motion"
+// import { AnimatePresence } from "framer-motion"
 import Navbar from "./components/Navbar/Navbar"
 import Homepage from "./pages/Homepage/Homepage"
 import Movies from "./pages/Movies/Movies"
@@ -29,28 +29,28 @@ const App = () => {
         <div className="App">
             <Navbar />
             <DetailModal />
-            <AnimatePresence exitBeforeEnter>
-                <Switch location={location} key={location.pathname}>
-                    <Route exact path="/">
-                        <Redirect to="/browse" />
-                    </Route>
-                    <Route path="/splash" component={SplashAnimation} />
-                    <Route path="/play" component={PlayAnimation} />
-                    <Route path="/search" render={() => searchResults && <Search results={searchResults} />} />
-                    <Route exact path="/browse" render={() => <Homepage />} />
-                    <Route exact path="/browse/:categoryName" render={(props) => <Category {...props} />} />
-                    <Route exact path="/tvseries" render={() => <TVSeries />} />
-                    <Route exact path="/tvseries/:categoryName" render={(props) => <Category {...props} />} />
-                    <Route exact path="/movies" render={() => <Movies />} />
-                    <Route exact path="/movies/:categoryName" render={(props) => <Category {...props} />} />
-                    <Route exact path="/popular" render={() => <Popular />} />
-                    <Route exact path="/popular/:categoryName" render={(props) => <Category {...props} />} />
-                    <Route exact path="/mylist" render={() => <MyList />} />
-                    <Route path="*">
-                        <Redirect to="/" />
-                    </Route>
-                </Switch>
-            </AnimatePresence>
+            {/* <AnimatePresence exitBeforeEnter> */}
+            <Switch location={location} key={location.pathname}>
+                <Route exact path="/">
+                    <Redirect to="/browse" />
+                </Route>
+                <Route path="/splash" component={SplashAnimation} />
+                <Route path="/play" component={PlayAnimation} />
+                <Route path="/search" render={() => searchResults && <Search results={searchResults} />} />
+                <Route exact path="/browse" render={() => <Homepage />} />
+                <Route exact path="/browse/:categoryName" render={(props) => <Category {...props} />} />
+                <Route exact path="/tvseries" render={() => <TVSeries />} />
+                <Route exact path="/tvseries/:categoryName" render={(props) => <Category {...props} />} />
+                <Route exact path="/movies" render={() => <Movies />} />
+                <Route exact path="/movies/:categoryName" render={(props) => <Category {...props} />} />
+                <Route exact path="/popular" render={() => <Popular />} />
+                <Route exact path="/popular/:categoryName" render={(props) => <Category {...props} />} />
+                <Route exact path="/mylist" render={() => <MyList />} />
+                <Route path="*">
+                    <Redirect to="/" />
+                </Route>
+            </Switch>
+            {/* </AnimatePresence> */}
         </div>
     )
 }
