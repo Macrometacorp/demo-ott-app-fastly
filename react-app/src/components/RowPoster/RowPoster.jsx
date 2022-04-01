@@ -1,11 +1,12 @@
 import "./rowPoster.scss"
 import { BASE_IMG_URL, FALLBACK_IMG_URL } from "../../requests"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { addToFavourites, removeFromFavourites } from "../../redux/favourites/favourites.actions"
 import { FaPlus, FaMinus, FaPlay, FaChevronDown } from "react-icons/fa"
 import useGenreConversion from "../../hooks/useGenreConversion"
 import { showModalDetail } from "../../redux/modal/modal.actions"
 import { Link } from "react-router-dom"
+import { selectCurrentUser } from "../../redux/auth/auth.selectors"
 
 const RowPoster = (result) => {
     const {
@@ -17,6 +18,7 @@ const RowPoster = (result) => {
     let fallbackTitle = title || original_title || name || original_name
     const genresConverted = useGenreConversion(genre_ids)
     const dispatch = useDispatch()
+    const currentUser = useSelector(selectCurrentUser)
 
     const handleAdd = (event) => {
         event.stopPropagation()
@@ -56,15 +58,16 @@ const RowPoster = (result) => {
                     <Link className="Row__poster-info--icon icon--play" onClick={handlePlayAction} to={"/play"}>
                         <FaPlay />
                     </Link>
-                    {!isFavourite ? (
-                        <button className="Row__poster-info--icon icon--favourite" onClick={handleAdd}>
-                            <FaPlus />
-                        </button>
-                    ) : (
-                        <button className="Row__poster-info--icon icon--favourite" onClick={handleRemove}>
-                            <FaMinus />
-                        </button>
-                    )}
+                    {currentUser &&
+                        (!isFavourite ? (
+                            <button className="Row__poster-info--icon icon--favourite" onClick={handleAdd}>
+                                <FaPlus />
+                            </button>
+                        ) : (
+                            <button className="Row__poster-info--icon icon--favourite" onClick={handleRemove}>
+                                <FaMinus />
+                            </button>
+                        ))}
                     <button className="Row__poster-info--icon icon--toggleModal">
                         <FaChevronDown onClick={handleModalOpening} />
                     </button>

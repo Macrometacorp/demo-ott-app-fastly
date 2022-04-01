@@ -64,11 +64,11 @@ const Navbar = () => {
                 New & Popular
               </NavLink>
             </li> */}
-                        <li className="Navbar__navlinks--link">
+                        {/* <li className="Navbar__navlinks--link">
                             <NavLink to="/mylist" activeClassName="activeNavLink">
                                 My list
                             </NavLink>
-                        </li>
+                        </li> */}
                     </ul>
                 ) : (
                     <div
@@ -102,11 +102,11 @@ const Navbar = () => {
                                             New & Popular
                                         </NavLink>
                                     </li> */}
-                                    <li className="Navbar__navlinks--link">
+                                    {/* <li className="Navbar__navlinks--link">
                                         <NavLink to="/mylist" activeClassName="activeNavLink">
                                             My list
                                         </NavLink>
-                                    </li>
+                                    </li> */}
                                 </ul>
                             )}
                         </div>
@@ -116,33 +116,35 @@ const Navbar = () => {
                     <div className="Navbar__navitem">
                         <Searchbar />
                     </div>
-                    {currentUser && (<div className="Navbar__navitem">
-                        <div
-                            className={`Navbar__navprofile ${profileNav && "active"}`}
-                            onClick={() => setProfileNav(!profileNav)}
-                        >
-                            <img
-                                className="Navbar__navprofile--avatar Navbar__navprofile--toggler"
-                                src={currentUser && currentUser.photoURL ? currentUser.photoURL : PROFILE_PIC_URL}
-                                alt="Profile Picture"
-                            />
-                            <FaCaretDown className="Navbar__navprofile--toggler Navbar__navprofile--caret" />
-                            <div className={`Navbar__navprofile--content ${profileNav ? "active" : ""}`}>
-                                {profileNav && (
-                                    <ul className="Navbar__navprofile--content-wrp" ref={profileNavRef}>
-                                        {currentUser && (
-                                            <li
-                                                className="Navbar__navlinks--link"
-                                                onClick={() => dispatch(signOutStart())}
-                                            >
-                                                Sign Out
-                                            </li>
-                                        )}
-                                    </ul>
-                                )}
+                    {currentUser && (
+                        <div className="Navbar__navitem">
+                            <div
+                                className={`Navbar__navprofile ${profileNav && "active"}`}
+                                onClick={() => setProfileNav(!profileNav)}
+                            >
+                                <img
+                                    className="Navbar__navprofile--avatar Navbar__navprofile--toggler"
+                                    src={currentUser && currentUser.photoURL ? currentUser.photoURL : PROFILE_PIC_URL}
+                                    alt="Profile Picture"
+                                />
+                                <FaCaretDown className="Navbar__navprofile--toggler Navbar__navprofile--caret" />
+                                <div className={`Navbar__navprofile--content ${profileNav ? "active" : ""}`}>
+                                    {profileNav && (
+                                        <ul className="Navbar__navprofile--content-wrp" ref={profileNavRef}>
+                                            {currentUser && (
+                                                <li
+                                                    className="Navbar__navlinks--link"
+                                                    onClick={() => dispatch(signOutStart())}
+                                                >
+                                                    Sign Out
+                                                </li>
+                                            )}
+                                        </ul>
+                                    )}
+                                </div>
                             </div>
                         </div>
-                    </div>)}
+                    )}
                 </div>
             </motion.nav>
         </>

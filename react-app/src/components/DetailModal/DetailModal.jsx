@@ -12,12 +12,14 @@ import { capitalizeFirstLetter, dateToYearOnly } from "../../utils"
 import { FaMinus, FaPlay, FaPlus } from "react-icons/fa"
 import { addToFavourites, removeFromFavourites } from "../../redux/favourites/favourites.actions"
 import useOutsideClick from "../../hooks/useOutsideClick"
+import { selectCurrentUser } from "../../redux/auth/auth.selectors"
 
 const DetailModal = () => {
     const dispatch = useDispatch()
     const modalClosed = useSelector(selectModalState)
     const modalContent = useSelector(selectModalContent)
     const handleModalClose = () => dispatch(hideModalDetail())
+    const currentUser = useSelector(selectCurrentUser)
     const {
         overview,
         fallbackTitle,
@@ -90,15 +92,16 @@ const DetailModal = () => {
                                         <FaPlay />
                                         <span>Play</span>
                                     </Link>
-                                    {!isFavourite ? (
-                                        <button className="Modal__image--button-circular" onClick={handleAdd}>
-                                            <FaPlus />
-                                        </button>
-                                    ) : (
-                                        <button className="Modal__image--button-circular" onClick={handleRemove}>
-                                            <FaMinus />
-                                        </button>
-                                    )}
+                                    {currentUser &&
+                                        (!isFavourite ? (
+                                            <button className="Modal__image--button-circular" onClick={handleAdd}>
+                                                <FaPlus />
+                                            </button>
+                                        ) : (
+                                            <button className="Modal__image--button-circular" onClick={handleRemove}>
+                                                <FaMinus />
+                                            </button>
+                                        ))}
                                 </div>
                             </div>
                             <motion.div
