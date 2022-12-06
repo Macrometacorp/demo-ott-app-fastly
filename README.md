@@ -4,9 +4,9 @@
 
 ## Setup
 
-| **Federation**                                        | **Email**                 | **Passsword** |
-| ----------------------------------------------------- | ------------------------- | ------------- |
-| [Global Data Network](https://gdn.paas.macrometa.io/) | demo-ott-app@macrometa.io | `xxxxxxxx`    |
+| **Federation**                                    | **Email**                 | **Passsword** |
+| ------------------------------------------------- | ------------------------- | ------------- |
+| [Global Data Network](https://play.macrometa.io/) | demo-ott-app@macrometa.io | `xxxxxxxx`    |
 
 ## Overview
 
@@ -19,6 +19,7 @@
 ![landing-page.png](landing-page.png)
 
 ### Edgely + Backend setup
+
 **[API setup with Fastly Compute@Edge](api-service/README.md)**
 
 ### Macrometa GDN setup
