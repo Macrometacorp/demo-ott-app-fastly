@@ -71,11 +71,9 @@ searchByAsset
 searchByCredits
 ```
 
-Refer to this link to add content for each Query worker:
+Refer to this link to add content for each [Query Worker](query-worker/query-worker.md).
 
-**[Query Workers](query-worker/query-worker.md)**
-
-4. On the development machine, run the following commands in a console:
+5. On the development machine, run the commands below in a console. Use Node.js v16.
 
 ```
 1. git clone https://github.com/Macrometacorp/metaflix-fastly.git

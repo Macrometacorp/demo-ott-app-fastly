@@ -8,6 +8,7 @@ let jsc8Client
 const initClient = () => {
     jsc8Client = new jsC8({
         url: getEnv(DICTIONARY_ITEM_KEYS.API_URL),
+        fabricName: getEnv(DICTIONARY_ITEM_KEYS.FABRIC_NAME),
         apiKey: getEnv(DICTIONARY_ITEM_KEYS.API_KEY),
         agent: fetch,
         agentOptions: {

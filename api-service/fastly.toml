@@ -6,12 +6,12 @@ description = "Macrometa Edgely + OTT App"
 language = "javascript"
 manifest_version = 2
 name = "api-server"
-service_id = ""
+service_id = "6lyVWeVXfRs6cqOhqd3dbi"
 
 [local_server]
   [local_server.backends]
     [local_server.backends.gdn_url]
-      url = "https://api-gdn.paas.macrometa.io"
+      url = "https://api-play2.paas.macrometa.io"
 
 [local_server.dictionaries]
     [local_server.dictionaries.env]
