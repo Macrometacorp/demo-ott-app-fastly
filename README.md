@@ -4,9 +4,9 @@
 
 ## Setup
 
-| **Federation**                                    | **Email**                 | **Passsword** |
-| ------------------------------------------------- | ------------------------- | ------------- |
-| [Global Data Network](https://play.macrometa.io/) | demo-ott-app@macrometa.io | `xxxxxxxx`    |
+| **Federation**                     | **Fabric** | **Email**         |
+| ---------------------------------- | ---------- | ----------------- |
+| [Play](https://play.macrometa.io/) | ott_app    | demo@macrometa.io |
 
 ## Overview
 
@@ -71,11 +71,9 @@ searchByAsset
 searchByCredits
 ```
 
-Refer to this link to add content for each Query worker:
+Refer to this link to add content for each [Query Worker](query-worker/query-worker.md).
 
-**[Query Workers](query-worker/query-worker.md)**
-
-4. On the development machine, run the following commands in a console:
+5. On the development machine, run the commands below in a console. Use Node.js v16.
 
 ```
 1. git clone https://github.com/Macrometacorp/metaflix-fastly.git
