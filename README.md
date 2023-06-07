@@ -4,9 +4,9 @@
 
 ## Setup
 
-| **Federation**                                    | **Email**                 | **Passsword** |
-| ------------------------------------------------- | ------------------------- | ------------- |
-| [Global Data Network](https://play.macrometa.io/) | demo-ott-app@macrometa.io | `xxxxxxxx`    |
+| **Federation**                     | **Fabric** | **Email**         |
+| ---------------------------------- | ---------- | ----------------- |
+| [Play](https://play.macrometa.io/) | ott_app    | demo@macrometa.io |
 
 ## Overview
 
